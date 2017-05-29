@@ -5,6 +5,12 @@ from os import getcwd
 from PIL import Image
 import random
 
+if not os.path.exists("bbox_posGt"):
+    os.makedirs("bbox_posGt")
+
+if not os.path.exists("yolo_posGt"):
+    os.makedirs("yolo_posGt")
+
 inputPrefix = getcwd()
 inputPath = inputPrefix + "/posGt/"
 outputPath = inputPrefix + "/bbox_posGt/"
