@@ -83,17 +83,20 @@ for txt_name in txt_name_list:
         elems = line.split(" ")
         txt_outfile.write('\n')
         txt_outfile.write(" ".join(elems[1:5]))
-
-        xmin = elems[1]
-        xmax = elems[1] + elems[3]
-        ymin = elems[2]
-        ymax = elems[2] + elems[4]
+        
+        print elems[1:5]
+        xmin = int(elems[1])
+        xmax = int(elems[1]) + int(elems[3])
+        ymin = int(elems[2])
+        ymax = int(elems[2]) + int(elems[4])
         b = (float(xmin), float(xmax), float(ymin), float(ymax))
         im = Image.open(img_path)
         w= int(im.size[0])
         h= int(im.size[1])
+
+        print (w, h)
         bb = convert((w,h), b)
-        print " ".join([str(a) for a in bb])
+        print bb
         yolo_txt_outfile.write(str(cls_id) + " " + " ".join([str(a) for a in bb]) + '\n')
 
     yolo_txt_outfile.close()
